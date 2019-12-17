@@ -14,7 +14,7 @@ const App: React.FC = () => {
 
   const markdownColumns = `Issue | Description | Completed | Who |\n-- | -- | -- | --`
 
-  const repoUrl = `https://github.com/travellocal/`
+  const repoUrl = `https://github.com/travellocal`
 
   return (
     <div className="App">
@@ -43,6 +43,9 @@ const App: React.FC = () => {
 
                     csv().fromString(csvString)
                       .then((result: Array<CsvResult>) => {
+
+                        console.log(result)
+
                         const issues = result.map((res: CsvResult) =>
                           `[#${res['Issue Number']}](${repoUrl}/${res['Repo Name']}/pull/${res['Issue Number']}) | ${res['Issue Title']} |  |  `)
 
